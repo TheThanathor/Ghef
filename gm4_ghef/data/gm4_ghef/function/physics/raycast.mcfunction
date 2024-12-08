@@ -28,5 +28,4 @@ data modify storage gm4_ghef:temp input.diameter set value 348
 tellraw @a [{"score":{"name":"@s","objective":"gm4_ghef.velocity.x"}}," ",{"score":{"name":"@s","objective":"gm4_ghef.velocity.z"}}," ",{"score":{"name":"$moved_distance","objective":"gm4_ghef_data"}}]
 function gm4_ghef:physics/rolling/compute_rolling_matrix with storage gm4_ghef:temp input
 data remove storage gm4_ghef:temp input
-
 scoreboard players set $moved_distance gm4_ghef_data 0

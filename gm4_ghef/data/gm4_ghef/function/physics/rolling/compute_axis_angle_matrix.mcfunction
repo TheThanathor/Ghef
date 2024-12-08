@@ -1,18 +1,20 @@
 
-# Inputs: vx, vy, vz, distance, diameter
-# vx, vy, vz is the velocity, scaled
+# Inputs: vx, vz, distance, diameter
+# vx, vz is the velocity, scaled
 # distance is the distance rolled (in blocks, scaled)
 # diameter is the diameter of the ball rolling (in blocks, scaled)
 
-## TODO: Calculate cross product vector for rotation
+## Calculate correct cross product vector
+
+$scoreboard players set $m.vx gm4_ghef_data $(vz)
+scoreboard players set $m.vy gm4_ghef_data 0
+$scoreboard players set $m.vz gm4_ghef_data $(vx)
+
+scoreboard players operation $m.vx gm4_ghef_data *= #-1 gm4_ghef_data
 
 ## Normalize velocity vector
 
 # Compute velocity magnitude
-$scoreboard players set $m.vx gm4_ghef_data $(vx)
-$scoreboard players set $m.vy gm4_ghef_data $(vy)
-$scoreboard players set $m.vz gm4_ghef_data $(vz)
-
 execute store result storage gm4_ghef:temp mag.x float 0.001 run scoreboard players get $m.vx gm4_ghef_data
 execute store result storage gm4_ghef:temp mag.y float 0.001 run scoreboard players get $m.vy gm4_ghef_data
 execute store result storage gm4_ghef:temp mag.z float 0.001 run scoreboard players get $m.vz gm4_ghef_data

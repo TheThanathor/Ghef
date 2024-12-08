@@ -1,13 +1,13 @@
 
-# Inputs: vx, vy, vz, distance, diameter
-# vx, vy, vz is the velocity, scaled
+# Inputs: vx, vz, distance, diameter
+# vx, vz is the velocity, scaled
 # distance is the distance rolled (in blocks, scaled)
 # diameter is the diameter of the ball rolling (in blocks, scaled)
 
 ## Compute axis-angle matrix
 
 # Run axis-angle matrix calculation
-$function gm4_ghef:physics/rolling/compute_axis_angle_matrix {vx: $(vx), vy: $(vy), vz: $(vz), distance: $(distance), diameter: $(diameter)}
+$function gm4_ghef:physics/rolling/compute_axis_angle_matrix {vx: $(vx), vz: $(vz), distance: $(distance), diameter: $(diameter)}
 
 ## Multiply stored matrix with new matrix
 

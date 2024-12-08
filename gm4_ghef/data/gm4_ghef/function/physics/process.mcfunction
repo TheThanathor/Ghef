@@ -3,7 +3,7 @@
 execute if block ~ ~-0.267 ~ #gm4_ghef:no_collision run scoreboard players operation @s gm4_ghef.acceleration.y += $gravity_x1 gm4_ghef_data
 scoreboard players operation @s gm4_ghef.velocity.y += @s gm4_ghef.acceleration.y
 # set gravity to 0 if ground is hit
-execute unless block ~ ~-0.267 ~ #gm4_ghef:no_collision if score @s gm4_ghef.velocity.y <= $bounce_cutoff gm4_ghef_data run function gm4_ghef:physics/bounce/y
+execute unless block ~ ~-0.267 ~ #gm4_ghef:no_collision if score @s gm4_ghef.velocity.y <= $bounce_cutoff_speed gm4_ghef_data run function gm4_ghef:physics/bounce/y
 
 # update acceleration and velocity. y axis is calculated without friction
 scoreboard players operation @s gm4_ghef.acceleration.x = @s gm4_ghef.velocity.x
@@ -39,6 +39,10 @@ execute store result storage gm4_ghef:temp target.distance.z float 0.001 run sco
 
 function gm4_ghef:physics/get_distance with storage gm4_ghef:temp target.distance
 
+# check if golfclub needs to be added / removed
+execute if entity @s[tag=gm4_ghef.moving] if score $move_distance gm4_ghef_data matches 0 run function gm4_ghef:club/spawn
+execute if entity @s[tag=!gm4_ghef.moving] if score $move_distance gm4_ghef_data matches 1.. run function gm4_ghef:club/remove
+
 # if no distance will be moved don't run the rest
 execute if score $move_distance gm4_ghef_data matches 0 run return 0
 scoreboard players operation $interpolation_calc gm4_ghef_data = $move_distance gm4_ghef_data
@@ -58,5 +62,3 @@ scoreboard players operation $interpolation gm4_ghef_data -= $interpolation_calc
 execute unless score $interpolation gm4_ghef_data matches 2..12 run scoreboard players set $interpolation gm4_ghef_data 2
 
 execute store result entity @n[type=item_display,tag=gm4_ghef.camera] teleport_duration int 1 run scoreboard players get $interpolation gm4_ghef_data
-
-execute at @s run tp @n[type=item_display,tag=gm4_ghef.camera] ~ ~5 ~3 facing ~ ~ ~

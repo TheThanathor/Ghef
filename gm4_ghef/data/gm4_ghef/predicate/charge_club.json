@@ -1,0 +1,16 @@
+{
+  "condition": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "type_specific": {
+      "type": "minecraft:player",
+      "gamemode": [
+        "spectator"
+      ],
+      "input": {
+        "jump": true
+      }
+    },
+    "nbt": "{Tags:[\"gm4_ghef.player\"]}"
+  }
+}

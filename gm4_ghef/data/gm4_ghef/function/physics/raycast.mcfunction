@@ -18,3 +18,5 @@ execute if score $move_step gm4_ghef_data matches 100 positioned ^ ^ ^0.1 run re
 
 # otherwise move here
 tp @s ~ ~ ~ ~ 0
+
+#hi

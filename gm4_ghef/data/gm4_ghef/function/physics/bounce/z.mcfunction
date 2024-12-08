@@ -1,14 +1,14 @@
 
 scoreboard players set $new_yaw gm4_ghef_data 1800
 
-scoreboard players operation $new_yaw gm4_ghef_data -= $yaw gm4_ghef_data
+scoreboard players operation $new_yaw gm4_ghef_data -= $yaw_x10 gm4_ghef_data
 
 # normalize
 scoreboard players add $new_yaw gm4_ghef_data 1800
 scoreboard players operation $new_yaw gm4_ghef_data %= #3600 gm4_ghef_data 
 scoreboard players remove $new_yaw gm4_ghef_data 1800
 
-scoreboard players operation $yaw gm4_ghef_data = $new_yaw gm4_ghef_data
+scoreboard players operation $yaw_x10 gm4_ghef_data = $new_yaw gm4_ghef_data
 
 # change remaining distance
 scoreboard players operation $move_distance gm4_ghef_data *= $bounce_percent.xz gm4_ghef_data

@@ -4,6 +4,8 @@
 # distance is the distance rolled (in blocks, scaled)
 # diameter is the diameter of the ball rolling (in blocks, scaled)
 
+tellraw @a ["old matrix\n", {"score": {"name": "$m.m00", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$m.m01", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m02", "objective": "gm4_ghef_data"}}, "\n", {"score": {"name": "$m.m10", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m11", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m12", "objective": "gm4_ghef_data"}}, "\n", {"score": {"name": "$m.m20", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m21", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m22", "objective": "gm4_ghef_data"}}]
+
 ## Compute axis-angle matrix
 
 # Run axis-angle matrix calculation
@@ -192,4 +194,4 @@ execute store result storage gm4_ghef:temp matrix.m22 float 0.001 run scoreboard
 function gm4_ghef:physics/rolling/apply_matrix with storage gm4_ghef:temp matrix 
 data remove storage gm4_ghef:temp matrix
 
-tellraw @a [{"score": {"name": "$m.m00", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$m.m01", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m02", "objective": "gm4_ghef_data"}}, "\n", {"score": {"name": "$m.m10", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m11", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m12", "objective": "gm4_ghef_data"}}, "\n", {"score": {"name": "$m.m20", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m21", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m22", "objective": "gm4_ghef_data"}}]
+tellraw @a ["new matrix\n", {"score": {"name": "$m.m00", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$m.m01", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m02", "objective": "gm4_ghef_data"}}, "\n", {"score": {"name": "$m.m10", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m11", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m12", "objective": "gm4_ghef_data"}}, "\n", {"score": {"name": "$m.m20", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m21", "objective": "gm4_ghef_data"}}, ", ", {"score": {"name": "$m.m22", "objective": "gm4_ghef_data"}}]

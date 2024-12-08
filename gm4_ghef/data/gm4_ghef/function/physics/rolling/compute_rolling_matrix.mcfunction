@@ -179,17 +179,17 @@ scoreboard players operation $m.m20 gm4_ghef_data = $m.c20 gm4_ghef_data
 scoreboard players operation $m.m21 gm4_ghef_data = $m.c21 gm4_ghef_data
 scoreboard players operation $m.m22 gm4_ghef_data = $m.c22 gm4_ghef_data
 
-execute store result storage gm4_ghef:temp matrix.m00 float 0.001 run scoreboard players get $m.m00 gm4_ghef_data
+execute store result storage gm4_ghef:temp matrix.m00 float 0.003 run scoreboard players get $m.m00 gm4_ghef_data
 execute store result storage gm4_ghef:temp matrix.m01 float 0.001 run scoreboard players get $m.m01 gm4_ghef_data
 execute store result storage gm4_ghef:temp matrix.m02 float 0.001 run scoreboard players get $m.m02 gm4_ghef_data
 
 execute store result storage gm4_ghef:temp matrix.m10 float 0.001 run scoreboard players get $m.m10 gm4_ghef_data
-execute store result storage gm4_ghef:temp matrix.m11 float 0.001 run scoreboard players get $m.m11 gm4_ghef_data
+execute store result storage gm4_ghef:temp matrix.m11 float 0.003 run scoreboard players get $m.m11 gm4_ghef_data
 execute store result storage gm4_ghef:temp matrix.m12 float 0.001 run scoreboard players get $m.m12 gm4_ghef_data
 
 execute store result storage gm4_ghef:temp matrix.m20 float 0.001 run scoreboard players get $m.m20 gm4_ghef_data
 execute store result storage gm4_ghef:temp matrix.m21 float 0.001 run scoreboard players get $m.m21 gm4_ghef_data
-execute store result storage gm4_ghef:temp matrix.m22 float 0.001 run scoreboard players get $m.m22 gm4_ghef_data
+execute store result storage gm4_ghef:temp matrix.m22 float 0.003 run scoreboard players get $m.m22 gm4_ghef_data
 
 function gm4_ghef:physics/rolling/apply_matrix with storage gm4_ghef:temp matrix 
 data remove storage gm4_ghef:temp matrix

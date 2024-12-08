@@ -17,9 +17,7 @@ scoreboard players operation @s gm4_ghef.acceleration.z /= #100 gm4_ghef_data
 scoreboard players operation @s gm4_ghef.velocity.z += @s gm4_ghef.acceleration.z
 
 # cut velocity if it is too slow
-scoreboard players set @s[scores={gm4_ghef.velocity.x=-10..10}] gm4_ghef.velocity.x 0
-scoreboard players set @s[scores={gm4_ghef.velocity.y=-10..10}] gm4_ghef.velocity.y 0
-scoreboard players set @s[scores={gm4_ghef.velocity.z=-10..10}] gm4_ghef.velocity.z 0
+execute if entity @s[scores={gm4_ghef.velocity.x=-10..10,gm4_ghef.velocity.y=-10..10,gm4_ghef.velocity.z=-10..10}] run function gm4_ghef:physics/cut_velocity
 
 # get distance to target
 execute store result storage gm4_ghef:temp target.x float 0.001 run scoreboard players get @s gm4_ghef.velocity.x

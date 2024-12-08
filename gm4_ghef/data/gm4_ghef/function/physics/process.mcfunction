@@ -22,22 +22,10 @@ scoreboard players set @s[scores={gm4_ghef.velocity.y=-10..10}] gm4_ghef.velocit
 scoreboard players set @s[scores={gm4_ghef.velocity.z=-10..10}] gm4_ghef.velocity.z 0
 
 # get distance to target
-execute store result score $pos.x gm4_ghef_data run data get entity @s Pos[0] 1000
-scoreboard players operation $distance.x gm4_ghef_data = $pos.x gm4_ghef_data
-scoreboard players operation $distance.x gm4_ghef_data += @s gm4_ghef.velocity.x
-execute store result storage gm4_ghef:temp target.distance.x float 0.001 run scoreboard players operation $distance.x gm4_ghef_data -= $pos.x gm4_ghef_data
-
-execute store result score $pos.y gm4_ghef_data run data get entity @s Pos[1] 1000
-scoreboard players operation $distance.y gm4_ghef_data = $pos.y gm4_ghef_data
-scoreboard players operation $distance.y gm4_ghef_data += @s gm4_ghef.velocity.y
-execute store result storage gm4_ghef:temp target.distance.y float 0.001 run scoreboard players operation $distance.y gm4_ghef_data -= $pos.y gm4_ghef_data
-
-execute store result score $pos.z gm4_ghef_data run data get entity @s Pos[2] 1000
-scoreboard players operation $distance.z gm4_ghef_data = $pos.z gm4_ghef_data
-scoreboard players operation $distance.z gm4_ghef_data += @s gm4_ghef.velocity.z
-execute store result storage gm4_ghef:temp target.distance.z float 0.001 run scoreboard players operation $distance.z gm4_ghef_data -= $pos.z gm4_ghef_data
-
-function gm4_ghef:physics/get_distance with storage gm4_ghef:temp target.distance
+execute store result storage gm4_ghef:temp target.x float 0.001 run scoreboard players get @s gm4_ghef.velocity.x
+execute store result storage gm4_ghef:temp target.y float 0.001 run scoreboard players get @s gm4_ghef.velocity.y
+execute store result storage gm4_ghef:temp target.z float 0.001 run scoreboard players get @s gm4_ghef.velocity.z
+function gm4_ghef:physics/get_distance with storage gm4_ghef:temp target
 
 # check if golfclub needs to be added / removed
 execute if entity @s[tag=gm4_ghef.moving] if score $move_distance gm4_ghef_data matches 0 run function gm4_ghef:club/spawn
@@ -48,10 +36,7 @@ execute if score $move_distance gm4_ghef_data matches 0 run return 0
 scoreboard players operation $interpolation_calc gm4_ghef_data = $move_distance gm4_ghef_data
 
 # spawn a marker and move it to the target position, we then raycast to it so Ghef doesn't phase through terrain
-execute store result storage gm4_ghef:temp target.facing.x float 0.001 run scoreboard players get @s gm4_ghef.velocity.x
-execute store result storage gm4_ghef:temp target.facing.y float 0.001 run scoreboard players get @s gm4_ghef.velocity.y
-execute store result storage gm4_ghef:temp target.facing.z float 0.001 run scoreboard players get @s gm4_ghef.velocity.z
-function gm4_ghef:physics/get_facing with storage gm4_ghef:temp target.facing
+function gm4_ghef:physics/get_facing with storage gm4_ghef:temp target
 data remove storage gm4_ghef:temp target
 
 # move camera, it has higher teleport delay so it will lag behind a bit

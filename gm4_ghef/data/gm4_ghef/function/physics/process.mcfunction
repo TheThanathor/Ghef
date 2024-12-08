@@ -27,26 +27,20 @@ execute store result storage gm4_ghef:temp target.y float 0.001 run scoreboard p
 execute store result storage gm4_ghef:temp target.z float 0.001 run scoreboard players get @s gm4_ghef.velocity.z
 function gm4_ghef:physics/get_distance with storage gm4_ghef:temp target
 
-# set rotation
-
-
 # check if golfclub needs to be added / removed
-execute if entity @s[tag=gm4_ghef.moving] if score $move_distance gm4_ghef_data matches 0 run function gm4_ghef:club/spawn
-execute if entity @s[tag=!gm4_ghef.moving] if score $move_distance gm4_ghef_data matches 1.. run function gm4_ghef:club/remove
+execute if entity @s[tag=gm4_ghef.moving] if score $total_velocity gm4_ghef_data matches 0 run function gm4_ghef:club/spawn
+execute if entity @s[tag=!gm4_ghef.moving] if score $total_velocity gm4_ghef_data matches 1.. run function gm4_ghef:club/remove
 
-# if no distance will be moved don't run the rest
-execute if score $move_distance gm4_ghef_data matches 0 run return 0
-scoreboard players operation $interpolation_calc gm4_ghef_data = $move_distance gm4_ghef_data
-
-# spawn a marker and move it to the target position, we then raycast to it so Ghef doesn't phase through terrain
-function gm4_ghef:physics/get_facing with storage gm4_ghef:temp target
-data remove storage gm4_ghef:temp target
-
+execute if score $total_velocity gm4_ghef_data matches 0 run return 0
 # move camera, it has higher teleport delay so it will lag behind a bit
 # the camera delay is reduced more the more speed Ghef has
 scoreboard players set $interpolation gm4_ghef_data 12
+scoreboard players operation $interpolation_calc gm4_ghef_data = $total_velocity gm4_ghef_data
 scoreboard players operation $interpolation_calc gm4_ghef_data /= #100 gm4_ghef_data
 scoreboard players operation $interpolation gm4_ghef_data -= $interpolation_calc gm4_ghef_data
 execute unless score $interpolation gm4_ghef_data matches 2..12 run scoreboard players set $interpolation gm4_ghef_data 2
 
 execute store result entity @n[type=item_display,tag=gm4_ghef.camera] teleport_duration int 1 run scoreboard players get $interpolation gm4_ghef_data
+
+# cleanup
+data remove storage gm4_ghef:temp target

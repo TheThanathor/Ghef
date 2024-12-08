@@ -1,5 +1,5 @@
 
-scoreboard players operation $yaw gm4_ghef_data *= #-1 gm4_ghef_data
+scoreboard players operation $yaw_x10 gm4_ghef_data *= #-1 gm4_ghef_data
 
 # change remaining distance
 scoreboard players operation $move_distance gm4_ghef_data *= $bounce_percent.xz gm4_ghef_data

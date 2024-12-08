@@ -12,7 +12,11 @@ scoreboard players set $bounce_cutoff_speed gm4_ghef_data -32
 scoreboard players set #-1 gm4_ghef_data -1
 scoreboard players set #0 gm4_ghef_data 0
 scoreboard players set #100 gm4_ghef_data 100
+scoreboard players set #1000 gm4_ghef_data 1000
+scoreboard players set #10000 gm4_ghef_data 10000
 scoreboard players set #3600 gm4_ghef_data 3600
+scoreboard players set #RAD2DEG gm4_ghef_data 572958
+scoreboard players set #DEG2RAD gm4_ghef_data 174
 
 scoreboard objectives add gm4_ghef.acceleration.x dummy
 scoreboard objectives add gm4_ghef.acceleration.y dummy
@@ -24,6 +28,7 @@ scoreboard objectives add gm4_ghef.velocity.z dummy
 
 forceload add 0 0
 summon item_display 0. 0 0. {UUID:[I;0,0,0,0]}
+summon marker 0.0 0.0 0.0 {Tags:["gm4_ghef.compute"]}
 
 tellraw @a {"color":"aqua","text":"Ghef is ready to roll!"}
 

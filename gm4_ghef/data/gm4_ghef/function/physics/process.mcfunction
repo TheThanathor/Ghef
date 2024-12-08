@@ -27,6 +27,9 @@ execute store result storage gm4_ghef:temp target.y float 0.001 run scoreboard p
 execute store result storage gm4_ghef:temp target.z float 0.001 run scoreboard players get @s gm4_ghef.velocity.z
 function gm4_ghef:physics/get_distance with storage gm4_ghef:temp target
 
+# set rotation
+
+
 # check if golfclub needs to be added / removed
 execute if entity @s[tag=gm4_ghef.moving] if score $move_distance gm4_ghef_data matches 0 run function gm4_ghef:club/spawn
 execute if entity @s[tag=!gm4_ghef.moving] if score $move_distance gm4_ghef_data matches 1.. run function gm4_ghef:club/remove

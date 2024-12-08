@@ -31,7 +31,7 @@ scoreboard players operation $m.vy gm4_ghef_data /= $magnitude gm4_ghef_data
 scoreboard players operation $m.vz gm4_ghef_data *= #1000 gm4_ghef_data
 scoreboard players operation $m.vz gm4_ghef_data /= $magnitude gm4_ghef_data
 
-tellraw @a [{"score": {"name": "$m.vx", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$m.vz", "objective": "gm4_ghef_data"}}]
+tellraw @a [{"score": {"name": "$m.vx", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$m.vz", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$magnitude", "objective": "gm4_ghef_data"}}]
 
 ## Compute velocity products for axis-angle matrix
 

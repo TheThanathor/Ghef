@@ -1,5 +1,5 @@
 
-data modify entity @s transformation set value [1f,0f,0f,0f,0f,1f,0f,0f,0f,0f,1f,0f,0f,0f,0f,1f]
+data modify entity @s transformation set value [3f,0f,0f,0f,0f,3f,0f,0f,0f,0f,3f,0f,0f,0f,0f,1f]
 
 scoreboard players set $m.m00 gm4_ghef_data 1000
 scoreboard players set $m.m01 gm4_ghef_data 0

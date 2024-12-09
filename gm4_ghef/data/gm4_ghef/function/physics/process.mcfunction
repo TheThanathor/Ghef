@@ -5,17 +5,6 @@ scoreboard players operation @s gm4_ghef.velocity.y += @s gm4_ghef.acceleration.
 # set gravity to 0 if ground is hit
 execute unless block ~ ~-0.267 ~ #gm4_ghef:no_collision if score @s gm4_ghef.velocity.y <= $bounce_cutoff_speed gm4_ghef_data run function gm4_ghef:physics/bounce/y
 
-# update acceleration and velocity. y axis is calculated without friction
-scoreboard players operation @s gm4_ghef.acceleration.x = @s gm4_ghef.velocity.x
-scoreboard players operation @s gm4_ghef.acceleration.x *= $friction_x100 gm4_ghef_data
-scoreboard players operation @s gm4_ghef.acceleration.x /= #100 gm4_ghef_data
-scoreboard players operation @s gm4_ghef.velocity.x += @s gm4_ghef.acceleration.x
-
-scoreboard players operation @s gm4_ghef.acceleration.z = @s gm4_ghef.velocity.z
-scoreboard players operation @s gm4_ghef.acceleration.z *= $friction_x100 gm4_ghef_data
-scoreboard players operation @s gm4_ghef.acceleration.z /= #100 gm4_ghef_data
-scoreboard players operation @s gm4_ghef.velocity.z += @s gm4_ghef.acceleration.z
-
 # cut velocity if it is too slow
 execute if entity @s[scores={gm4_ghef.velocity.x=-10..10,gm4_ghef.velocity.y=-10..10,gm4_ghef.velocity.z=-10..10}] run function gm4_ghef:physics/cut_velocity
 
@@ -27,9 +16,22 @@ function gm4_ghef:physics/get_distance with storage gm4_ghef:temp target
 
 # check if golfclub needs to be added / removed
 execute if entity @s[tag=gm4_ghef.moving] if score $total_velocity gm4_ghef_data matches 0 run function gm4_ghef:club/spawn
-execute if entity @s[tag=!gm4_ghef.moving] if score $total_velocity gm4_ghef_data matches 1.. run function gm4_ghef:club/remove
+execute if entity @s[tag=!gm4_ghef.moving,tag=!gm4_ghef.club_removing] if score $total_velocity gm4_ghef_data matches 1.. run function gm4_ghef:club/remove
 
+# if there is no velocity no need to run the rest of this
 execute if score $total_velocity gm4_ghef_data matches 0 run return 0
+
+# update acceleration and velocity. y axis is calculated without friction
+scoreboard players operation @s gm4_ghef.acceleration.x = @s gm4_ghef.velocity.x
+scoreboard players operation @s gm4_ghef.acceleration.x *= $friction_x100 gm4_ghef_data
+scoreboard players operation @s gm4_ghef.acceleration.x /= #100 gm4_ghef_data
+scoreboard players operation @s gm4_ghef.velocity.x += @s gm4_ghef.acceleration.x
+
+scoreboard players operation @s gm4_ghef.acceleration.z = @s gm4_ghef.velocity.z
+scoreboard players operation @s gm4_ghef.acceleration.z *= $friction_x100 gm4_ghef_data
+scoreboard players operation @s gm4_ghef.acceleration.z /= #100 gm4_ghef_data
+scoreboard players operation @s gm4_ghef.velocity.z += @s gm4_ghef.acceleration.z
+
 # move camera, it has higher teleport delay so it will lag behind a bit
 # the camera delay is reduced more the more speed Ghef has
 scoreboard players set $interpolation gm4_ghef_data 12

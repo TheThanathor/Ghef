@@ -21,7 +21,7 @@ execute store result storage gm4_ghef:temp mag.z float 0.001 run scoreboard play
 function gm4_ghef:physics/rolling/compute_magnitude with storage gm4_ghef:temp mag
 data remove storage gm4_ghef:temp mag
 
-tellraw @a ["bef ", {"score": {"name": "$m.vx", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$m.vz", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$magnitude", "objective": "gm4_ghef_data"}}]
+#tellraw @a ["bef ", {"score": {"name": "$m.vx", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$m.vz", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$magnitude", "objective": "gm4_ghef_data"}}]
 
 scoreboard players add $magnitude gm4_ghef_data 1
 
@@ -35,7 +35,7 @@ scoreboard players operation $m.vy gm4_ghef_data /= $magnitude gm4_ghef_data
 scoreboard players operation $m.vz gm4_ghef_data *= #1000 gm4_ghef_data
 scoreboard players operation $m.vz gm4_ghef_data /= $magnitude gm4_ghef_data
 
-tellraw @a ["aft ", {"score": {"name": "$m.vx", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$m.vz", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$magnitude", "objective": "gm4_ghef_data"}}]
+#tellraw @a ["aft ", {"score": {"name": "$m.vx", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$m.vz", "objective": "gm4_ghef_data"}},", ", {"score": {"name": "$magnitude", "objective": "gm4_ghef_data"}}]
 
 ## Compute velocity products for axis-angle matrix
 

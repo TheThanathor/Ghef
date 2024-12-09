@@ -8,6 +8,7 @@ scoreboard players set $gravity_x1 gm4_ghef_data -8
 scoreboard players set $bounce_percent.y gm4_ghef_data 20
 scoreboard players set $bounce_percent.xz gm4_ghef_data 80
 scoreboard players set $bounce_cutoff_speed gm4_ghef_data -32
+scoreboard players set $rolling_resistance_percentage gm4_ghef_data 10
 
 scoreboard players set #-1 gm4_ghef_data -1
 scoreboard players set #0 gm4_ghef_data 0
@@ -34,6 +35,7 @@ scoreboard objectives add gm4_ghef.velocity.z dummy
 
 forceload add 0 0
 summon item_display 0. 0 0. {UUID:[I;0,0,0,0]}
+kill @e[type=marker,tag=gm4_ghef.compute]
 summon marker 0.0 0.0 0.0 {Tags:["gm4_ghef.compute"]}
 
 tellraw @a {"color":"aqua","text":"Ghef is ready to roll!"}

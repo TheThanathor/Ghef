@@ -48,6 +48,8 @@ tellraw @a {"color":"aqua","text":"Ghef is ready to roll!"}
 ## TODO LIST (in order of importance):
 # golf club spawning / despawning and input - movement of Ghef, use the new predicate
 
+# mark player in spectator as player automatically
+
 # sausage spawning system
 
 # furnace timed sausage cooking

@@ -1,4 +1,7 @@
 
+execute if predicate {condition:"random_chance",chance:0.15} run function gm4_ghef:object/stove/repick
+execute if predicate {condition:"random_chance",chance:0.15} run function gm4_ghef:object/delivery/repick
+
 kill @n[type=marker,tag=gm4_ghef.saved_location]
 
 execute unless score $strokes_left gm4_ghef_data matches 1.. run tellraw @a [{"text":"You ran out of Strokes! You delivered ","color":"red"},{"score":{"name":"$sausages_delivered","objective":"gm4_ghef_data"},"color":"white"},{"text":" sausages!"}]

@@ -18,9 +18,10 @@ function gm4_ghef:club/set with storage gm4_ghef:temp club
 data remove storage gm4_ghef:temp club
 
 # arrows
-kill @e[type=item_display,tag=gm4_ghef.arrow]
-execute if score $stage gm4_ghef_data matches 1 at @e[type=item_display,tag=gm4_ghef.sausage,tag=!gm4_ghef.sausage.picked_up] run summon item_display ~ ~0.75 ~ {teleport_duration:1,Tags:["gm4_ghef.arrow","gm4_ghef.entity"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},item_display:"head",item:{id:"minecraft:white_dye",count:1,components:{"minecraft:item_model":"ghef:arrow"}}}
-execute if score $stage gm4_ghef_data matches 2 at @e[type=item_display,tag=gm4_ghef.stove] run summon item_display ~ ~1.75 ~ {teleport_duration:1,Tags:["gm4_ghef.arrow","gm4_ghef.entity"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},item_display:"head",item:{id:"minecraft:white_dye",count:1,components:{"minecraft:item_model":"ghef:arrow"}}}
-execute if score $stage gm4_ghef_data matches 3 at @e[type=item_display,tag=gm4_ghef.delivery] run summon item_display ~ ~1.5 ~ {teleport_duration:1,Tags:["gm4_ghef.arrow","gm4_ghef.entity"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},item_display:"head",item:{id:"minecraft:white_dye",count:1,components:{"minecraft:item_model":"ghef:arrow"}}}
- 
+kill @e[type=item_display,tag=gm4_ghef.arrow.remove]
+tag @e[type=item_display,tag=gm4_ghef.arrow] add gm4_ghef.arrow.remove
+execute if score $stage gm4_ghef_data matches 1 at @e[type=item_display,tag=gm4_ghef.sausage,tag=!gm4_ghef.sausage.picked_up] run summon item_display ~ ~.75 ~ {billboard:"vertical",teleport_duration:1,Tags:["gm4_ghef.arrow","gm4_ghef.entity"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},item:{id:"minecraft:white_dye",count:1,components:{"minecraft:item_model":"ghef:arrow"}}}
+execute if score $stage gm4_ghef_data matches 2 at @e[type=item_display,tag=gm4_ghef.stove] run summon item_display ~ ~.75 ~ {billboard:"vertical",teleport_duration:1,Tags:["gm4_ghef.arrow","gm4_ghef.entity"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},item:{id:"minecraft:white_dye",count:1,components:{"minecraft:item_model":"ghef:arrow"}}}
+execute if score $stage gm4_ghef_data matches 3 at @e[type=item_display,tag=gm4_ghef.delivery] run summon item_display ~ ~.75 ~ {billboard:"vertical",teleport_duration:1,Tags:["gm4_ghef.arrow","gm4_ghef.entity"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]},item:{id:"minecraft:white_dye",count:1,components:{"minecraft:item_model":"ghef:arrow"}}}
+
 title @a[gamemode=spectator,tag=gm4_ghef.player] actionbar {"score":{"name":"$strokes_left","objective":"gm4_ghef_data"}}

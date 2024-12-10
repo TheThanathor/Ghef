@@ -1,4 +1,6 @@
 
+scoreboard players set $stage gm4_ghef_data 1
+
 scoreboard players set $sausages_delivered gm4_ghef_data 0
 
 scoreboard players set $strokes_left gm4_ghef_data 26

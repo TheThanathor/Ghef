@@ -1,6 +1,8 @@
 
 execute on passengers run kill @s[tag=gm4_ghef.sausage.picked_up]
 
+scoreboard players set $stage gm4_ghef_data 1
+
 execute store result score $reduce_velocity gm4_ghef_data run random value 25..50
 scoreboard players operation @s gm4_ghef.velocity.x *= $reduce_velocity gm4_ghef_data
 scoreboard players operation @s gm4_ghef.velocity.x /= #100 gm4_ghef_data

@@ -1,4 +1,6 @@
 
+execute if score @s gm4_ghef.velocity.y > $bounce_cutoff_speed gm4_ghef_data run return run scoreboard players set @s gm4_ghef.velocity.y 0
+
 scoreboard players set @s gm4_ghef.acceleration.y 0
 
 scoreboard players operation @s gm4_ghef.velocity.y *= $bounce_percent.y gm4_ghef_data
@@ -7,3 +9,5 @@ scoreboard players operation @s gm4_ghef.velocity.y *= #-1 gm4_ghef_data
 
 # sound
 playsound entity.armadillo.land master @a ~ ~ ~ 1 1.25 1
+
+function gm4_ghef:physics/rolling/reset_matrix

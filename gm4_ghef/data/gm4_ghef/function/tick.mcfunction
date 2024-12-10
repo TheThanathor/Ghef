@@ -9,7 +9,12 @@ execute as @p[tag=gm4_ghef.player] run function gm4_ghef:player/process
 # ghef
 execute as @n[type=item_display,tag=gm4_ghef.main] at @s run function gm4_ghef:physics/process
 
+# rats
+execute as @e[type=item_display,tag=gm4_ghef.rat] at @s run function gm4_ghef:object/rat/process
+
 # move camera (this will also move the club)
 execute store result storage gm4_ghef:temp club.angle int 1 run scoreboard players get $club_angle gm4_ghef_data
 function gm4_ghef:club/set with storage gm4_ghef:temp club
 data remove storage gm4_ghef:temp club
+
+title @a[gamemode=spectator,tag=gm4_ghef.player] actionbar {"score":{"name":"$strokes_left","objective":"gm4_ghef_data"}}

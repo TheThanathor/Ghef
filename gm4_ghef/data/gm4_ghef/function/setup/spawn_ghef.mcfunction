@@ -15,3 +15,4 @@ summon item_display ~ ~ ~ {teleport_duration:6,Tags:["gm4_ghef.camera","gm4_ghef
 execute as @e[type=item_display,tag=gm4_ghef.main] run function gm4_ghef:physics/rolling/reset_matrix
 
 function gm4_ghef:object/stove/repick
+function gm4_ghef:object/delivery/repick

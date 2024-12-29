@@ -1,6 +1,4 @@
 
-scoreboard players remove $strokes_left gm4_ghef_data 1
-
 tag @s add gm4_ghef.moving
 scoreboard players set $ghef_moving gm4_ghef_data 1
 

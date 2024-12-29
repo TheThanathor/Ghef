@@ -32,6 +32,10 @@ scoreboard players set $m.m00 gm4_ghef_data 1000
 scoreboard players set $m.m11 gm4_ghef_data 1000
 scoreboard players set $m.m22 gm4_ghef_data 1000
 
+scoreboard objectives add gm4_ghef.id dummy
+
+scoreboard objectives add gm4_ghef.diameter dummy
+
 scoreboard objectives add gm4_ghef.acceleration.x dummy
 scoreboard objectives add gm4_ghef.acceleration.y dummy
 scoreboard objectives add gm4_ghef.acceleration.z dummy

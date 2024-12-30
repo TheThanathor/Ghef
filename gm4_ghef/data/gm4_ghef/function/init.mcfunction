@@ -6,6 +6,7 @@
 schedule function gm4_ghef:tick 1t
 
 scoreboard objectives add gm4_ghef_data dummy
+scoreboard objectives add gm4_ghef_jukebox dummy
 # friction
 scoreboard players set $friction_percentage_loss gm4_ghef_data -3
 scoreboard players set $gravity_acceleration gm4_ghef_data -80

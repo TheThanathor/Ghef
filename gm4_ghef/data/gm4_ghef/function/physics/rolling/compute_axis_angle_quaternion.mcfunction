@@ -65,7 +65,7 @@ scoreboard players operation $q.ay gm4_ghef_data = $m.vy gm4_ghef_data
 scoreboard players operation $q.ay gm4_ghef_data *= $m.sin gm4_ghef_data
 scoreboard players operation $q.ay gm4_ghef_data /= #1000 gm4_ghef_data
 
-scoreboard players operation $q.az gm4_ghef_data = $m.vy gm4_ghef_data
+scoreboard players operation $q.az gm4_ghef_data = $m.vz gm4_ghef_data
 scoreboard players operation $q.az gm4_ghef_data *= $m.sin gm4_ghef_data
 scoreboard players operation $q.az gm4_ghef_data /= #1000 gm4_ghef_data
 

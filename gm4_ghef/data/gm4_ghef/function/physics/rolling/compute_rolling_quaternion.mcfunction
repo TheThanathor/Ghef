@@ -105,6 +105,7 @@ scoreboard players operation $q.rw gm4_ghef_data += $q.az_mw gm4_ghef_data
 
 # Apply the new rotation to Ghef and update the internal storage
 
+data modify storage gm4_ghef:temp quat set value [0.0f,0.0f,0.0f,1.0f]
 execute store result storage gm4_ghef:temp quat[0] float 0.001 run scoreboard players get $q.rx gm4_ghef_data
 execute store result storage gm4_ghef:temp quat[1] float 0.001 run scoreboard players get $q.ry gm4_ghef_data
 execute store result storage gm4_ghef:temp quat[2] float 0.001 run scoreboard players get $q.rz gm4_ghef_data

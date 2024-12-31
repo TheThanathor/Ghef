@@ -7,7 +7,7 @@
 ## Compute axis-angle quaternion
 
 # Run axis-angle quaternion calculation
-$function gm4_ghef:physics/rolling/compute_axis_angle_matrix {vx: $(vx), vz: $(vz), distance: $(distance), diameter: $(diameter)}
+$function gm4_ghef:physics/rolling/compute_axis_angle_quaternion {vx: $(vx), vz: $(vz), distance: $(distance), diameter: $(diameter)}
 
 ## Multiply stored quaternion with new quaternion (q_new = q_axis * q_old)
 

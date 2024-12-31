@@ -9,5 +9,3 @@ scoreboard players operation @s gm4_ghef.velocity.y *= #-1 gm4_ghef_data
 
 # sound
 playsound entity.armadillo.land master @a ~ ~ ~ 1 1.25 1
-
-function gm4_ghef:physics/rolling/reset_matrix

@@ -16,6 +16,7 @@ scoreboard players set $bounce_cutoff_speed gm4_ghef_data -500
 
 scoreboard players set $angle_change_per_tick gm4_ghef_data 1
 
+scoreboard players set #-1000 gm4_ghef_data -1000
 scoreboard players set #-3 gm4_ghef_data -3
 scoreboard players set #-1 gm4_ghef_data -1
 scoreboard players set #0 gm4_ghef_data 0
@@ -23,7 +24,6 @@ scoreboard players set #2 gm4_ghef_data 2
 scoreboard players set #10 gm4_ghef_data 10
 scoreboard players set #100 gm4_ghef_data 100
 scoreboard players set #1000 gm4_ghef_data 1000
-scoreboard players set #-1000 gm4_ghef_data 1000
 scoreboard players set #10000 gm4_ghef_data 10000
 scoreboard players set #3600 gm4_ghef_data 3600
 scoreboard players set #RAD2DEG gm4_ghef_data 57296

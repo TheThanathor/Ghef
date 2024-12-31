@@ -46,7 +46,7 @@ scoreboard players operation $m.rangle gm4_ghef_data /= $m.t0 gm4_ghef_data
 
 # Convert from radians to degrees
 scoreboard players operation $m.rangle gm4_ghef_data *= #RAD2DEG gm4_ghef_data
-scoreboard players operation $m.rangle gm4_ghef_data /= #-1000 gm4_ghef_data
+scoreboard players operation $m.rangle gm4_ghef_data /= #1000 gm4_ghef_data
 
 ## Compute sin and cosines of roll angle
 

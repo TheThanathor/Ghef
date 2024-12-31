@@ -4,7 +4,6 @@
 # diameter is the diameter of the ball rolling (in blocks, scaled)
 
 ## Compute axis-angle quaternion
-
 execute store result score $q.mx gm4_ghef_data run data get entity @s transformation.right_rotation[0] 1000
 execute store result score $q.my gm4_ghef_data run data get entity @s transformation.right_rotation[1] 1000
 execute store result score $q.mz gm4_ghef_data run data get entity @s transformation.right_rotation[2] 1000

@@ -4,4 +4,5 @@ summon item_display ~ ~ ~ {shadow_radius:0.25,teleport_duration:1,Tags:["gm4_ghe
 summon item_display ~ ~ ~ {teleport_duration:6,Tags:["gm4_ghef.camera","gm4_ghef.entity","gm4_ghef.new"],item:{id:"minecraft:air",count:1}}
 scoreboard players operation @e[type=item_display,tag=gm4_ghef.new] gm4_ghef.id = $processing_id gm4_ghef_data
 execute as @e[type=item_display,tag=gm4_ghef.new,tag=gm4_ghef.main] store result score @s gm4_ghef.diameter run data get entity @s transformation.scale[0] 172
+execute as @e[type=item_display,tag=gm4_ghef.new,tag=gm4_ghef.main] at @s run function gm4_ghef:physics/rolling/reset_quaternion
 tag @e[type=item_display,tag=gm4_ghef.new] remove gm4_ghef.new

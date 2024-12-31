@@ -1,4 +1,3 @@
-
 # Inputs: vx, vz, distance, diameter
 # vx, vz is the velocity, scaled
 # distance is the distance rolled (in blocks, scaled)

@@ -6,6 +6,11 @@
 
 ## Compute axis-angle quaternion
 
+execute store result score $q.mx gm4_ghef_data run data get entity @s transformation.right_rotation[0] 1000
+execute store result score $q.my gm4_ghef_data run data get entity @s transformation.right_rotation[1] 1000
+execute store result score $q.mz gm4_ghef_data run data get entity @s transformation.right_rotation[2] 1000
+execute store result score $q.mw gm4_ghef_data run data get entity @s transformation.right_rotation[3] 1000
+
 # Run axis-angle quaternion calculation
 $function gm4_ghef:physics/rolling/compute_axis_angle_quaternion {vx: $(vx), vz: $(vz), distance: $(distance), diameter: $(diameter)}
 
@@ -83,25 +88,25 @@ scoreboard players operation $q.az_mw gm4_ghef_data /= #1000 gm4_ghef_data
 
 # Compute new quaternion
 
-scoreboard players operation $q.rx gm4_ghef_data = $q.aw_mw gm4_ghef_data
-scoreboard players operation $q.rx gm4_ghef_data -= $q.ax_mx gm4_ghef_data
-scoreboard players operation $q.rx gm4_ghef_data -= $q.ay_my gm4_ghef_data
-scoreboard players operation $q.rx gm4_ghef_data -= $q.az_mz gm4_ghef_data
+scoreboard players operation $q.rw gm4_ghef_data = $q.aw_mw gm4_ghef_data
+scoreboard players operation $q.rw gm4_ghef_data -= $q.ax_mx gm4_ghef_data
+scoreboard players operation $q.rw gm4_ghef_data -= $q.ay_my gm4_ghef_data
+scoreboard players operation $q.rw gm4_ghef_data -= $q.az_mz gm4_ghef_data
 
-scoreboard players operation $q.ry gm4_ghef_data = $q.aw_mx gm4_ghef_data
-scoreboard players operation $q.ry gm4_ghef_data += $q.ax_mw gm4_ghef_data
-scoreboard players operation $q.ry gm4_ghef_data += $q.ay_mz gm4_ghef_data
-scoreboard players operation $q.ry gm4_ghef_data -= $q.az_my gm4_ghef_data
+scoreboard players operation $q.rx gm4_ghef_data = $q.aw_mx gm4_ghef_data
+scoreboard players operation $q.rx gm4_ghef_data += $q.ax_mw gm4_ghef_data
+scoreboard players operation $q.rx gm4_ghef_data += $q.ay_mz gm4_ghef_data
+scoreboard players operation $q.rx gm4_ghef_data -= $q.az_my gm4_ghef_data
 
-scoreboard players operation $q.rz gm4_ghef_data = $q.aw_my gm4_ghef_data
-scoreboard players operation $q.rz gm4_ghef_data -= $q.ax_mz gm4_ghef_data
-scoreboard players operation $q.rz gm4_ghef_data += $q.ay_mw gm4_ghef_data
-scoreboard players operation $q.rz gm4_ghef_data += $q.az_mx gm4_ghef_data
+scoreboard players operation $q.ry gm4_ghef_data = $q.aw_my gm4_ghef_data
+scoreboard players operation $q.ry gm4_ghef_data -= $q.ax_mz gm4_ghef_data
+scoreboard players operation $q.ry gm4_ghef_data += $q.ay_mw gm4_ghef_data
+scoreboard players operation $q.ry gm4_ghef_data += $q.az_mx gm4_ghef_data
 
-scoreboard players operation $q.rw gm4_ghef_data = $q.aw_mz gm4_ghef_data
-scoreboard players operation $q.rw gm4_ghef_data += $q.ax_my gm4_ghef_data
-scoreboard players operation $q.rw gm4_ghef_data -= $q.ay_mx gm4_ghef_data
-scoreboard players operation $q.rw gm4_ghef_data += $q.az_mw gm4_ghef_data
+scoreboard players operation $q.rz gm4_ghef_data = $q.aw_mz gm4_ghef_data
+scoreboard players operation $q.rz gm4_ghef_data += $q.ax_my gm4_ghef_data
+scoreboard players operation $q.rz gm4_ghef_data -= $q.ay_mx gm4_ghef_data
+scoreboard players operation $q.rz gm4_ghef_data += $q.az_mw gm4_ghef_data
 
 # Apply the new rotation to Ghef and update the internal storage
 

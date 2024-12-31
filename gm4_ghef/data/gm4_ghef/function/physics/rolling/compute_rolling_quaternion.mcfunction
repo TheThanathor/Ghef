@@ -120,9 +120,4 @@ data modify entity @s transformation.right_rotation set from storage gm4_ghef:te
 data modify entity @s interpolation_duration set value 1
 data modify entity @s start_interpolation set value -1
 
-execute store result score $q.mx gm4_ghef_data run data get entity @s transformation.right_rotation[0] 1000
-execute store result score $q.my gm4_ghef_data run data get entity @s transformation.right_rotation[1] 1000
-execute store result score $q.mz gm4_ghef_data run data get entity @s transformation.right_rotation[2] 1000
-execute store result score $q.mw gm4_ghef_data run data get entity @s transformation.right_rotation[3] 1000
-
 data remove storage gm4_ghef:temp quat
